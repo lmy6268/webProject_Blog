@@ -1,0 +1,59 @@
+<!-- 홈화면  -->
+<html lang="en">
+
+<head>
+    <script src="../main.js"></script>
+    <link rel="stylesheet" href="./index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Devlog:규연의 개발블로그</title>
+</head>
+
+<body>
+    <!-- 헤더 -->
+    <header>
+        <a href="./index.html" id="logo">
+            <span id="logo">K-Devlog
+                <h6>규연의 개발블로그</h6>
+            </span>
+        </a>
+       
+        <!-- 네비게이션 바 메뉴  -->
+        <ul id="navbar">
+            <li id="home"><a href="./index.html">홈</a></li>
+            <li><a href="../postList.html">글목록</a></li>
+        </ul>
+        <div class="search">
+            <input class="search_bar" name="검색" type="text">
+            <input type="button" value="검색">
+        </div>
+
+
+    </header>
+    <!-- 슬라이드 쇼 부분 -->
+    <article>
+        <input type="button" value="&lt;" name="왼쪽" id="btnLeft">
+        <img src="" alt="이미지" id="postImg">
+        <div class="texts">
+            <h4 id="tag">#자바 공부</h4>
+            <h1 id="title"></h1>
+            <p id="desc"></p>
+            <span id="mv2Post"> > 본문으로 이동</span>
+        </div>
+        <input type="button" value="&gt;" name="왼쪽" id="btnRight">
+    </article>
+    <div class="circles"></div>
+    <footer>
+        <div style="width: 100%; height: 50px; margin-top: 100px; ">
+            <a href="https://github.com/lmy6268?tab=repositories">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt=""
+                    style='width:30px;height:30px; display: inline-block;'>
+                <p style="display: inline-block; font-weight: bold;"> lmy6268 </p>
+            </a>
+        </div>
+        Created by 컴퓨터공학과, 4학년, 002반, 20170993, 이규연
+    </footer>
+</body>
+
+</html>

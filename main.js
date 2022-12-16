@@ -446,7 +446,7 @@ const processPostDetailHtml = (index) => {
         categorys[i].addEventListener('click', () => {
             var list = window.location.href.split("/")
             list.pop();
-            location.replace(`${list.join("/")}/postList.html?idx=${i}`);
+            location.replace(`${list.join("/")}/postList.html?idx=${i}`); //postList.html에서 카테고리가 i인 게시물 목록을 띄우게 한다.
         });
     }
     categorys[cat].style.fontWeight = "bold"; //카테고리 aside에서 현재 선택된 카테고리를 굵은 글씨로 표시한다.

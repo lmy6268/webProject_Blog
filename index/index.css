@@ -73,7 +73,7 @@ div.search {
 }
 .search>input#imgBtn {
     vertical-align: middle;
-    background: url('./imgs/icon_search.png') no-repeat;
+    background: url('../imgs/icon_search.png') no-repeat;
     background-size: cover;
     border: none;
     width: 25px;

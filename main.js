@@ -3,13 +3,20 @@ const today = new Date().toISOString().split("T")[0];
 const category = ["전체", "안드로이드 개발", "코딩테스트 공부"];
 //게시물 클래스
 class post {
-    constructor(img = "./imgs/defaultImg.jpg", title = "", tag = "", desc = "", date = today) {
+    constructor(img = "../imgs/defaultImg.jpg", title = "", tag = "", desc = "", date = today) {
         this.img = img
         this.title = title;
         this.tag = tag;
         this.desc = desc;
         this.date = date;
     }
+}
+
+function showPostDetail(idx){
+    var list = window.location.href.split("/")
+    list.pop();
+    list.pop();
+    location.replace(`${list.join("/")}/postDetail/postDetail.html?idx=${idx}`);
 }
 //전체 게시물 목록
 var lists = [
@@ -92,7 +99,7 @@ var lists = [
         "2022-12-10"),
     new post(
         //게시물 이미지    
-        "./imgs/img2.jpg",
+        "../imgs/img2.jpg",
         //게시물 명
         "백준 문제풀이 21866번",
         // 카테고리 태그
@@ -234,7 +241,7 @@ public class Main { // 백준에서 자바로 답안 제출시에는 Main클래�
         "2022-12-12"),
     new post(
         //게시물 이미지    
-        "./imgs/androidImg.jpg",
+        "../imgs/androidImg.jpg",
         //게시물 명
         "안드로이드 LiveData와 친해지기",
         // 카테고리 태그
@@ -243,6 +250,44 @@ public class Main { // 백준에서 자바로 답안 제출시에는 Main클래�
         `<h3>참고 사이트</h3>
         <a href="https://developer.android.com/topic/libraries/architecture/livedata">https://developer.android.com/topic/libraries/architecture/livedata</a>
         <h3>LiveData란?</h3>
+            Observer 클래스를 상속받아 데이터의 변화를 관찰할 수 있는 데이터 홀더를 의미합니다. 
+
+            생명주기를 인식합니다. 
+        <h3>LiveData를 사용하면서 얻는 이점</h3>
+            <b>1. UI와 데이터 상태의 일치를 보장한다.</b>
+
+                앱데이터가 변경되면, 관찰자가 이를 인식하고 개발자가 직접 업데이트 할 필요없이
+
+                알아서 업데이트해준다.
+
+
+            <b>2. 메모리 누수가 없다</b>
+
+                관찰자가 LifeCycle객체에 결합되어있어, 연결된 수명주기가 끝나면 자동으로 삭제된다.
+            
+            
+            <b>3. 최신 데이터를 유지한다.</b>
+
+                수명 주기가 비활성화되었다면 다시 활성화될 때 최신 데이터를 수신한다. 
+                
+                ex> 백그라운드에 있던 액티비티가 포그라운드로 돌아온 직후 최신 데이터로 업데이트 한다.
+            
+        <h3>사용방법</h3>
+            1) 특정 유형의 데이터를 보유할 LiveData의 인스턴스를 생성합니다. 이 작업은 일반적으로 ViewModel 클래스 내에서 이루어집니다.
+
+
+            2) onChanged() 메서드를 정의하는 Observer 객체를 만듭니다. 
+
+               이 메서드는 LiveData 객체가 보유한 데이터 변경 시 발생하는 작업을 제어합니다. 
+               (일반적으로 활동이나 프래그먼트 같은 UI 컨트롤러에 Observer 객체를 만듭니다.)
+
+        
+            3) observe() 메서드를 사용하여 LiveData 객체에 Observer 객체를 연결합니다. 
+               (observe() 메서드는 LifecycleOwner 객체를 사용합니다.)
+        
+               이렇게 하면 Observer 객체가 LiveData 객체를 구독하여 변경사항에 관한 알림을 받습니다. 
+               (일반적으로 활동이나 프래그먼트와 같은 UI 컨트롤러에 Observer 객체를 연결합니다.)
+
         `,
         // 작성일자
         "2022-12-10"),
@@ -261,7 +306,9 @@ var codingList = []; //코딩테스트 공부 게시물
 //다 로딩된 이후
 window.onload = () => {
     const params = window.location.search;
-    let url = document.documentURI.split("/")[3].replace(params, ""); //현재 문서 위치
+    let splitData =document.documentURI.split("/");
+    let url = splitData[splitData.length-1].replace(params, ""); //현재 문서 위치
+    console.log(url);
     if (url == "index.html") { //index.html인 경우
         processIndexHtml();
     }
@@ -308,9 +355,7 @@ const processIndexHtml = (url) => {
 
     //해당 게시물을 보여주는 루틴 구성
     mv.addEventListener('click', () => {
-        var list = window.location.href.split("/")
-        list.pop();
-        location.replace(`${list.join("/")}/postDetail.html?idx=${idx}`);
+       showPostDetail(idx);
     })
     // 값 세팅 
     circles[idx].style.backgroundColor = "black";
@@ -375,9 +420,7 @@ const processPostListHtml = (idx) => {
             let desc = article.querySelector("#desc");
             desc.innerText = lists[i].desc.length > 100 ? lists[i].desc.substring(0, 100) + "..." : lists[i].desc;
             article.addEventListener('click', () => {
-                var list = window.location.href.split("/")
-                list.pop();
-                location.replace(`${list.join("/")}/postDetail.html?idx=${i}`);
+                showPostDetail(i);
             });
             switch (lists[i].tag) {
                 case "#안드로이드 개발":
@@ -416,6 +459,7 @@ const processPostListHtml = (idx) => {
     categorys[categoryTag].style.fontWeight = "bold"; //카테고리 aside에서 현재 선택된 카테고리를 굵은 글씨로 표시한다.
 }
 
+
 //postDetail.html에서 처리할 프로세스 
 const processPostDetailHtml = (index) => {
 
@@ -446,7 +490,8 @@ const processPostDetailHtml = (index) => {
         categorys[i].addEventListener('click', () => {
             var list = window.location.href.split("/")
             list.pop();
-            location.replace(`${list.join("/")}/postList.html?idx=${i}`); //postList.html에서 카테고리가 i인 게시물 목록을 띄우게 한다.
+            list.pop();
+            location.replace(`${list.join("/")}/postList/postList.html?idx=${i}`); //postList.html에서 카테고리가 i인 게시물 목록을 띄우게 한다.
         });
     }
     categorys[cat].style.fontWeight = "bold"; //카테고리 aside에서 현재 선택된 카테고리를 굵은 글씨로 표시한다.

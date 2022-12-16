@@ -1,9 +1,8 @@
 <!-- 홈화면  -->
 <html lang="en">
-
 <head>
-    <script src="./main.js"></script>
-    <link rel="stylesheet" href="./postDetail.css">
+    <script src=".././main.js"></script>
+    <link rel="stylesheet" href="./index.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,33 +17,34 @@
                 <h6>규연의 개발블로그</h6>
             </span>
         </a>
+
         <!-- 네비게이션 바 메뉴  -->
         <ul id="navbar">
-            <li><a href="./index.html">홈</a></li>
-            <li id="home"><a href="./postList.html">글목록</a></li>
+            <li id="home"><a href="./index.html">홈</a></li>
+            <li><a href="../postList/postList.html">글목록</a></li>
         </ul>
         <div class="search">
             <input id="search_bar" name="검색" type="text" placeholder="검색">
             <input type="button" id="imgBtn">
         </div>
+
+
     </header>
-    <div id="center">
-        <div id="main-section">
+    <!-- 슬라이드 쇼 부분 -->
+    <article>
+        <input type="button" value="&lt;" name="왼쪽" id="btnLeft">
+        <img src="" alt="이미지" id="postImg">
+        <div class="texts">
+            <h4 id="tag">#자바 공부</h4>
+            <h1 id="title"></h1>
+            <p id="desc"></p>
+            <span id="mv2Post"> > 본문으로 이동</span>
         </div>
-        <aside id="main-aside">
-            <div class="aside-list">
-                <h3>카테고리</h3>
-                <ul id="categorys">
-                    <li>전체</li>
-                    <li>안드로이드 개발</li>
-                    <li>코딩테스트 공부</li>
-                </ul>
-            </div>
-        </aside>
-    </div>
-   
+        <input type="button" value="&gt;" name="왼쪽" id="btnRight">
+    </article>
+    <div class="circles"></div>
     <footer>
-        <div id="main-footer">
+        <div style="width: 100%; height: 50px; margin-top: 100px; ">
             <a href="https://github.com/lmy6268/webProject_Blog">
                 <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt=""
                     style='width:30px;height:30px; display: inline-block;'>
@@ -53,4 +53,6 @@
         </div>
         Created by 컴퓨터공학과, 4학년, 002반, 20170993, 이규연
     </footer>
+</body>
+
 </html>

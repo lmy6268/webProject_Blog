@@ -11,30 +11,20 @@
     <br> 
     * ├── imgs
         <br> 
-        *    ├── androidImg.jpg
-        <br> 
+        *   ├── androidImg.jpg
         *   ├── defaultImg.jpg
-        <br> 
-        *    ├── icon_search.png
-        <br> 
+        *   ├── icon_search.png
         *   └── img2.jpg
         <br> 
     * ├── index.css
-        <br> 
-    * ├── index.html -> 블로그의 홈페이지를 보여준다.
-        <br> 
-    * ├── main.js -> 전반적인 javascript처리를 담당한다.
-        <br> 
+    * ├── index.html -> 블로그의 홈페이지를 보여준다
+    * ├── main.js -> 전반적인 javascript처리를 담당한다. 
     * ├── postDetail  -> 게시물의 상세정보를 화면에 출력한다.
-        <br> 
         * ├── postDetail.css
-        <br> 
-        *  └── postDetail.html
+        * └── postDetail.html
         <br> 
     * └── postList -> 게시물 목록을 보여준다.
-        <br> 
-        *   ├── postList.css
-        <br> 
+        *  ├── postList.css
         *  └── postList.html
 
 

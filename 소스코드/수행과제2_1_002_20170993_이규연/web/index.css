@@ -6,26 +6,29 @@ body {
 }
 
 header {
-position: relative;
+    position: relative;
     margin-top: 10px;
     height: 100px;
     text-align: center;
     display: flex;
     vertical-align: center;
-    justify-content:space-around;
+    justify-content: space-around;
     align-items: center;
     margin: 50px;
 }
+
 span#logo {
-    cursor:pointer;
+    cursor: pointer;
     margin-top: 50px;
     font-weight: bold;
     font-size: 30px;
     display: inline-block;
 }
+
 span#logo:hover {
-    text-shadow: 10px 10px 10px  #c8c8c8;
+    text-shadow: 10px 10px 10px #c8c8c8;
 }
+
 span#logo>h6 {
     font-weight: lighter;
     font-size: 15px;
@@ -60,10 +63,11 @@ div.search {
     margin-left: 400px;
 }
 
-.search>input#search_bar:focus{
+.search>input#search_bar:focus {
     outline: none;
 }
-.search>input#search_bar{
+
+.search>input#search_bar {
     background-color: #c8c8c8;
     padding-left: 20px;
     border-radius: 5px;
@@ -71,9 +75,10 @@ div.search {
     vertical-align: middle;
     height: 32px;
 }
+
 .search>input#imgBtn {
     vertical-align: middle;
-    background: url('../imgs/icon_search.png') no-repeat;
+    background: url('./imgs/icon_search.png') no-repeat;
     background-size: cover;
     border: none;
     width: 25px;
@@ -92,63 +97,70 @@ ul#navbar>li:hover {
     border-bottom: 3px solid black;
 
     padding-bottom: 0px;
-    
-    transition: padding-bottom ease-out  1s;
-   
+
+    transition: padding-bottom ease-out 1s;
+
 }
 
 /* 내용부분 디자인 */
 article {
-    display: flex;  
-    /* flex를 이용하여, 화면구성을 진행한다. 수업시간엔 배우지 않았지만,  */
-    justify-content:space-around;
+    display: flex;
+    /* flex를 이용하여, 화면구성을 진행한다. 수업시간엔 배우지 않았지만, 유연한 화면 구성을 위해 사용해 보았다.   */
+    justify-content: space-around;
     align-items: center;
-    
+
     background-color: rgba(100, 100, 100, 0.3);
     position: relative;
     text-align: left;
 }
-article >input{
+
+article>input {
     margin-left: 30px;
     margin-right: 30px;
 }
+
 article>img {
     margin: 50px;
     width: 600px;
     height: 400px;
     border-radius: 10px;
-    box-shadow: 3px 3px 10px 3px rgba(10,10,10, 0.3);
+    box-shadow: 3px 3px 10px 3px rgba(10, 10, 10, 0.3);
 }
-span#mv2Post{
+
+span#mv2Post {
     font-weight: lighter;
-    
+
 }
-h4#tag{
-    box-shadow: 1px 1px 1px 1px rgba(10,10,10, 0.3);
+
+h4#tag {
+    box-shadow: 1px 1px 1px 1px rgba(10, 10, 10, 0.3);
     cursor: default;
     background-color: rgba(255, 255, 255, 0.8);
     width: fit-content;
     padding: 5px;
     border-radius: 2px 2px 2px 2px;
 }
-span#mv2Post:hover{
+
+span#mv2Post:hover {
     cursor: pointer;
     padding-bottom: 3px;
     font-weight: bold;
-    transition: border-bottom, padding-bottom  ease-out  0.2s;
+    transition: border-bottom, padding-bottom ease-out 0.2s;
     border-bottom: 1px solid black;
 }
-div.texts{
+
+div.texts {
     width: 500px;
-   
+
 }
 
 /* 동그라미 리스트 */
-div.circles{
+div.circles {
     width: 100%;
     text-align: center;
 }
-div.circles > div:hover{
+
+div.circles>div:hover {
     cursor: pointer;
 }
 

@@ -1,9 +1,14 @@
 
 const today = new Date().toISOString().split("T")[0];
 const category = ["전체", "안드로이드 개발", "코딩테스트 공부"];
+const uri = document.documentURI.split("/")
+const dir= uri.slice(0,uri.length-2).join("/");
+const params = window.location.search;
+const url = uri[uri.length-1].replace(params, ""); //현재 문서 위치
+const path = url == "index.html"? ".":"..";
 //게시물 클래스
 class post {
-    constructor(img = "../imgs/defaultImg.jpg", title = "", tag = "", desc = "", date = today) {
+    constructor(img = path+"/imgs/defaultImg.jpg", title = "", tag = "", desc = "", date = today) {
         this.img = img
         this.title = title;
         this.tag = tag;
@@ -12,12 +17,14 @@ class post {
     }
 }
 
+//게시물의 상세 내용을 보여주는 함수
 function showPostDetail(idx){
     var list = window.location.href.split("/")
     list.pop();
     list.pop();
     location.replace(`${list.join("/")}/postDetail/postDetail.html?idx=${idx}`);
 }
+
 //전체 게시물 목록
 var lists = [
     new post(
@@ -99,7 +106,7 @@ var lists = [
         "2022-12-10"),
     new post(
         //게시물 이미지    
-        "../imgs/img2.jpg",
+        path+"/imgs/img2.jpg",
         //게시물 명
         "백준 문제풀이 21866번",
         // 카테고리 태그
@@ -241,7 +248,7 @@ public class Main { // 백준에서 자바로 답안 제출시에는 Main클래�
         "2022-12-12"),
     new post(
         //게시물 이미지    
-        "../imgs/androidImg.jpg",
+        path+"/imgs/androidImg.jpg",
         //게시물 명
         "안드로이드 LiveData와 친해지기",
         // 카테고리 태그
@@ -305,10 +312,6 @@ var codingList = []; //코딩테스트 공부 게시물
 
 //다 로딩된 이후
 window.onload = () => {
-    const params = window.location.search;
-    let splitData =document.documentURI.split("/");
-    let url = splitData[splitData.length-1].replace(params, ""); //현재 문서 위치
-    console.log(url);
     if (url == "index.html") { //index.html인 경우
         processIndexHtml();
     }
@@ -321,7 +324,7 @@ window.onload = () => {
 }
 
 //index.html에서 동작하는 js코드
-const processIndexHtml = (url) => {
+const processIndexHtml = () => {
     var idx = 0;//현재 게시물 인덱스
     var btnLeft = document.getElementById("btnLeft");
     var btnRight = document.getElementById("btnRight");
@@ -378,6 +381,7 @@ const processIndexHtml = (url) => {
         slideNext(idx, img, title, desc);
         circles[idx].style.backgroundColor = "black";
     })
+    
     setInterval(()=>{
         circles[idx].style.backgroundColor = "white";
         idx += 1;
@@ -424,10 +428,10 @@ const processPostListHtml = (idx) => {
             });
             switch (lists[i].tag) {
                 case "#안드로이드 개발":
-                    androidList.push(article);
+                    androidList.push(article); //안드로이드 개발 태그에 현재 게시물을 등록한다.
                     break;
                 case "#코딩테스트 공부":
-                    codingList.push(article);
+                    codingList.push(article); //코딩테스트 공부 태그에 현재 게시물을 등록한다
                     break;
                 default:
                     break;
@@ -435,7 +439,9 @@ const processPostListHtml = (idx) => {
             totalList.push(article);
         }
     }
+    //선택된 카테고리태그에 맞는 게시물 배열을 사용한다. 
     var dataList = categoryTag == 0 ? totalList : categoryTag == 1 ? androidList : codingList;
+
     mainSection.innerHTML = `<h2 id="category">${category[categoryTag]} (${dataList.length})</h2> `;
     for (let i = 0; i < dataList.length; i++) {
         mainSection.append(dataList[i]);
@@ -490,7 +496,8 @@ const processPostDetailHtml = (index) => {
         categorys[i].addEventListener('click', () => {
             var list = window.location.href.split("/")
             list.pop();
-            list.pop();
+            if(url!="index.html")list.pop();
+            console.log(list.join("/"));
             location.replace(`${list.join("/")}/postList/postList.html?idx=${i}`); //postList.html에서 카테고리가 i인 게시물 목록을 띄우게 한다.
         });
     }

@@ -6,19 +6,36 @@
     
     <br>
 * 파일 구조 
-    * main.js -> 전반적인 javascript처리를 담당한다.
+    
+    web
+    <br> 
+    * ├── imgs
+        <br> 
+        *    ├── androidImg.jpg
+        <br> 
+        *   ├── defaultImg.jpg
+        <br> 
+        *    ├── icon_search.png
+        <br> 
+        *   └── img2.jpg
+        <br> 
+    * ├── index.css
+        <br> 
+    * ├── index.html -> 블로그의 홈페이지를 보여준다.
+        <br> 
+    * ├── main.js -> 전반적인 javascript처리를 담당한다.
+        <br> 
+    * ├── postDetail  -> 게시물의 상세정보를 화면에 출력한다.
+        <br> 
+        * ├── postDetail.css
+        <br> 
+        *  └── postDetail.html
+        <br> 
+    * └── postList -> 게시물 목록을 보여준다.
+        <br> 
+        *   ├── postList.css
+        <br> 
+        *  └── postList.html
 
-    * index -> 블로그의 홈페이지를 보여준다.
-        * index.html
-        * index.css     
-        <br>   
-    * postList -> 게시물 목록을 보여준다.
-        * postList.html 
-        * postList.css
-        
-        <br>   
-    * postDetail -> 게시물의 상세정보를 화면에 출력한다.
-        * postDetail.html
-        * postDetail.css
 
 

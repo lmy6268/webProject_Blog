@@ -1,10 +1,17 @@
+/* 게시물 목록을 보여주는 postList.html을 꾸미는 css */
 body {
     margin: 0;
     cursor: default;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* 헤더 */
+/* a태그 색변경되는거 막기 */
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/* header 디자인*/
 header {
     position: relative;
     margin-top: 10px;
@@ -17,22 +24,26 @@ header {
     margin: 50px;
 }
 
+/* 로고 디자인 */
 span#logo {
-    cursor:pointer;
+    cursor: pointer;
     margin-top: 50px;
     font-weight: bold;
     font-size: 30px;
     display: inline-block;
 }
+
 span#logo:hover {
-    text-shadow: 10px 10px 10px  #c8c8c8;
+    text-shadow: 10px 10px 10px #c8c8c8;
 }
+
 span#logo>h6 {
     font-weight: lighter;
     font-size: 15px;
     margin-top: 5px;
 }
 
+/* 네비게이션 바 요소 디자인 */
 ul#navbar {
     margin-left: 100px;
     display: inline-block;
@@ -48,10 +59,13 @@ ul#navbar>li {
 }
 
 ul#navbar>li#home {
+    /* fit-content는 태그안에 있는 내용의 크기에 맞추어 태그의 너비 or 높이를 맞춰준다. */
     width: fit-content;
     border-bottom: 3px solid black;
 }
 
+
+/*검색창 디자인*/
 div.search {
     padding-right: 10px;
     background-color: #c8c8c8;
@@ -81,11 +95,6 @@ div.search {
     cursor: pointer;
 }
 
-/* a태그 색변경되는거 막기 */
-a {
-    color: black;
-    text-decoration: none;
-}
 
 ul#navbar>li:hover {
     cursor: pointer;
@@ -97,6 +106,9 @@ ul#navbar>li:hover {
 }
 
 
+/* 페이지 중심부 */
+
+/* 사이드 바(카테고리 목록) 디자인 */
 #main-aside {
     float: right;
     width: fit-content;
@@ -107,19 +119,16 @@ ul#navbar>li:hover {
     border: 1px solid rgba(0, 0, 0, 0);
     background-color: rgba(100, 100, 100, 0.3);
 }
-div#center{
-    width: 100%;
-    height: fit-content;
-}
+
 #main-aside>div>ul>li {
     list-style: inside;
     margin-bottom: 10px;
     font-weight: lighter;
     cursor: pointer;
 }
-#main-aside>div>ul>li:hover{
+
+#main-aside>div>ul>li:hover {
     width: fit-content;
-    font-weight: bold;
     color: white;
     transition: all ease-out 0.2s;
 }
@@ -127,16 +136,15 @@ div#center{
 #main-section {
     float: left;
     width: 710px;
-    height: max-content;
     margin-left: 200px;
 }
 
-/* 본문 추가하기(사이드 메뉴) */
+/* 본문 디자인 */
 article {
     width: fit-content;
     padding-left: 30px;
     padding-right: 30px;
-    padding-bottom:20px ;
+    padding-bottom: 20px;
     margin: 0 10px 20px 30px;
     text-align: left;
     border-bottom: 3px solid #c8c8c8;
@@ -148,16 +156,18 @@ article:hover {
 }
 
 .article-header {
-    padding: 0px 10px;
+    padding: 10px 0;
 }
 
 .article-title {
     margin: 0;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     padding-bottom: 10px;
 }
-.article-date{
+
+.article-date {
+    text-align: right;
     margin-top: 10px;
     font-weight: 500;
     font-style: italic;
@@ -168,18 +178,9 @@ h2#category {
     width: 250px;
     border-bottom: 2px solid #c8c8c8;
 }
-h4#tag{
-    box-shadow: 1px 1px 1px 1px rgba(10,10,10, 0.3);
-    cursor: default;
-    background-color: rgba(200, 200, 200, 0.8);
-    width: fit-content;
-    padding: 5px;
-    border-radius: 2px 2px 2px 2px;
-}
 
 .article-body {
     font-size: 14px;
-    text-align: left;
 }
 
 img#postImg {
@@ -192,14 +193,15 @@ img#postImg {
 
 /* footer에 관한 디자인 */
 footer {
-    height: fit-content;
+    height: min-content;
     margin-bottom: 10px;
     text-align: center;
 }
 
 div#main-footer {
     width: 100%;
-    padding-top: 200px;
+    height: fit-content;
+    padding-top: 100px;
     text-align: center;
     display: inline-block;
 }
